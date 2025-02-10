@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>PDF Redactor</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+      body {
+        background-color: #e0f7fa;
+        font-family: 'Arial', sans-serif;
+      }
+      .header {
+        background-color: #00796b;
+        color: white;
+        padding: 20px 0;
+        text-align: center;
+        position: relative;
+      }
+      .header h1, .header p {
+        margin: 0;
+      }
+      .time {
+        position: absolute;
+        right: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 1.2em;
+      }
+      .container {
+        margin-top: 30px;
+        background-color: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+      .footer {
+        background-color: #00796b;
+        color: white;
+        padding: 10px 0;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        text-align: center;
+      }
+      .btn-primary {
+        background-color: #00796b;
+        border-color: #00796b;
+        transition: background-color 0.3s, border-color 0.3s;
+      }
+      .btn-primary:hover {
+        background-color: #004d40;
+        border-color: #004d40;
+      }
+      .file-upload-label {
+        display: block;
+        margin-bottom: 10px;
+        font-weight: bold;
+      }
+      .file-upload {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <h1>PDF Redactor</h1>
+      <p>Securely redact sensitive information from your PDF files</p>
+      <div class="time" id="current-time"></div>
+    </div>
+    <div class="container">
+      <h2 class="mt-5">Upload PDF to Redact Sensitive Information</h2>
+      <p>Our tool allows you to mask sensitive information such as names, phone numbers, email addresses, and more from your PDF documents.</p>
+      <form method="post" action="/upload" enctype="multipart/form-data">
+        <div class="form-group">
+          <label for="file" class="file-upload-label">Upload PDF</label>
+          <div class="file-upload">
+            <input type="file" class="form-control" id="file" name="file" required>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary">
+          Submit
+        </button>
+      </form>
+    </div>
+    <div class="footer">
+      <p>MADE BY CH SRAEYES AND MANOJ M</p>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+      function updateTime() {
+        const now = new Date();
+        const hours = String(now.getHours()).padStart(2, '0');
+        const minutes = String(now.getMinutes()).padStart(2, '0');
+        const seconds = String(now.getSeconds()).padStart(2, '0');
+        document.getElementById('current-time').textContent = ${hours}:${minutes}:${seconds};
+      }
+      setInterval(updateTime, 1000);
+      updateTime();
+    </script>
+  </body>
+</html>
